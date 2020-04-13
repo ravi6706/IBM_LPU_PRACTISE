@@ -24,6 +24,19 @@ public class AccountServiceImpl implements AccountService {
 		// TODO Auto-generated method stub
 		return accountRepository.createAccount(account);
 	}
+	
+	@Override
+	public Account updateAccount(Account account) {
+		return accountRepository.updateAccount(account);
+	}
+
+
+	@Override
+	public Account deleteAccount(Account account) {
+		
+		return accountRepository.deleteAccount(account);
+	}
+
 
 	
 	

@@ -34,6 +34,22 @@ public class AccountRepositoryImpl implements AccountRepository {
 		
 		return account;
 	}
+
+
+	@Override
+	public Account updateAccount(Account account) {
+		String query = "update account set accountType='"+account.getAccountType()+"', balance="+account.getInitialBalance()+" where accountNumber='"+account.getAccountNumber()+"'";
+		jdbcTemplate.update(query);
+		return account;
+	}
+
+
+	@Override
+	public Account deleteAccount(Account account) {
+		String query = "delete from account where accountNumber='"+account.getAccountNumber()+"'";
+		jdbcTemplate.update(query);
+		return account;
+	}
 	
 
 }

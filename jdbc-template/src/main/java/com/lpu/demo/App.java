@@ -17,12 +17,14 @@ public class App
     	AccountService service = context.getBean("accountServiceImpl",AccountServiceImpl.class);
     	
 		Account account=context.getBean("account",Account.class);
-		String str[]=UUID.randomUUID().toString().split("-");
-		account.setAccountNumber(str[0]);
-		account.setAccountType(AccountType.CREDIT_CARD);
-		account.setInitialBalance(100000);
+		//String str[]=UUID.randomUUID().toString().split("-");
+		account.setAccountNumber("e602ee65");
+		//account.setAccountType(AccountType.CURRENT);
+		//account.setInitialBalance(600000);
 	
-		account=service.createAccount(account);
+		//account=service.createAccount(account);
+		//account=service.updateAccount(account);
+		account=service.deleteAccount(account);
 		System.out.println(account);
     }
 }
