@@ -17,6 +17,7 @@ public class App
     public static void main( String[] args )
     {
     	ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+    	//AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(JDBCConfig.class);
 		
 		AccountService service = context.getBean("accountServiceImpl",AccountServiceImpl.class);
 		Account account=context.getBean("account",Account.class);
