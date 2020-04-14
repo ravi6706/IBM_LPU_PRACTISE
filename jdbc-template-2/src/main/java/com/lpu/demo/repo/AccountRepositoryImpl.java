@@ -52,8 +52,14 @@ public class AccountRepositoryImpl implements AccountRepository{
 	public void deleteById(String accountNumber) {
 		
 		 String str="delete from account where accountNumber='"+accountNumber+"'";
-		 jdbcTemplate.update(str);
-		 System.out.println("account deleted successfully with id: "+accountNumber);
+		 int result = jdbcTemplate.update(str);
+		 if(result==0) {
+			 System.out.println("no such account number found"+accountNumber);
+		 }
+		 else {
+			 System.out.println("account deleted successfully with id: "+accountNumber);
+		 }
+		 
 	}
 
 
@@ -64,8 +70,14 @@ public class AccountRepositoryImpl implements AccountRepository{
 		System.out.println("ENTER BALANCE:");
 		int bal = sc.nextInt();
 		String str = "update account set balance=" + bal + " 5where accountNumber='"+accountNumber+"'";
-		jdbcTemplate.update(str);
-		System.out.println("account updated successfully with id: "+accountNumber);
+		int result = jdbcTemplate.update(str);
+		if(result==0) {
+			 System.out.println("no such account number found"+accountNumber);
+		 }
+		 else {
+			 System.out.println("account updated successfully with id: "+accountNumber);
+		 }
+		
 	}
 
 
