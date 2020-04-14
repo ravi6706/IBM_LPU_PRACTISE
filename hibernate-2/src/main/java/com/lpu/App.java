@@ -24,6 +24,7 @@ public class App
     		do {
     			System.out.println("1. Create a customer");
     			System.out.println("2. Display all customers");
+    			System.out.println("3. Get customer by id");
     			System.out.print("Enter your choice:  ");
     			choice=scanner.nextInt();
     			switch (choice) {
@@ -47,6 +48,18 @@ public class App
     				for(Customer c:list)
     				{
     					System.out.println(c);
+    				}
+    				break;
+    			case 3:
+    				System.out.print("Enter customer ID: ");
+    				customer=service.getCustomerByID(scanner.next());
+    				if(customer==null)
+    				{
+    					System.out.println("No customer found with given ID: ");
+    				}
+    				else
+    				{
+    					System.out.println(customer);
     				}
     				break;
     			case 0:

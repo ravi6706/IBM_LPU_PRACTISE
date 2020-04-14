@@ -26,4 +26,10 @@ public class CustomerServiceImpl implements CustomerService {
 		return dao.getAllCustomer();
 	}
 
+	@Override
+	public Customer getCustomerByID(String customerId) {
+		
+		return dao.getCustomerByID(customerId);
+	}
+
 }

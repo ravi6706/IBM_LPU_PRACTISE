@@ -36,6 +36,12 @@ public class CustomerDAOImpl implements CustomerDAO {
 		
 		return list;
 	}
+
+	@Override
+	public Customer getCustomerByID(String customerId) {
+		
+		return session.get(Customer.class, customerId);
+	}
 	
 	
 
