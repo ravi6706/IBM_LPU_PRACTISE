@@ -1,6 +1,7 @@
 package com.lpu.dao;
 
 import java.util.List;
+import java.util.Scanner;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -42,6 +43,16 @@ public class CustomerDAOImpl implements CustomerDAO {
 		
 		return session.get(Customer.class, customerId);
 	}
+
+	@Override
+	public Customer updateById(Customer customer) {
+		session.getTransaction().begin();
+		session.update(customer);
+		session.getTransaction().commit();
+		return customer;
+	}
+
+	
 	
 	
 

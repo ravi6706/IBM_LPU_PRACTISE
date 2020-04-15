@@ -32,4 +32,10 @@ public class CustomerServiceImpl implements CustomerService {
 		return dao.getCustomerByID(customerId);
 	}
 
+	@Override
+	public Customer updateById(Customer customer) {
+		
+		return dao.updateById(customer);
+	}
+
 }

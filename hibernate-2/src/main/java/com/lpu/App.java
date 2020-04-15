@@ -18,13 +18,14 @@ public class App
     		service=new CustomerServiceImpl();
     	}
     	public static void main(String[] args) {
-    		String name,email;
+    	    String name,email;
     		boolean available;
     		int choice=-1;
     		do {
     			System.out.println("1. Create a customer");
     			System.out.println("2. Display all customers");
     			System.out.println("3. Get customer by id");
+    			System.out.println("4. Update customer by id");
     			System.out.print("Enter your choice:  ");
     			choice=scanner.nextInt();
     			switch (choice) {
@@ -62,6 +63,24 @@ public class App
     					System.out.println(customer);
     				}
     				break;
+    			case 4:
+    				System.out.println("Enter the id you want to update");
+    				String customerId = scanner.next();
+    				System.out.println("Enter new name");
+    				name = scanner.next();
+    				System.out.println("Enter new email");
+    				email = scanner.next();
+    				System.out.println("Enter new account status");
+    				available = scanner.nextBoolean();
+    				Customer customer1 = new Customer();
+    				customer1.setCustomerId(customerId);
+    				customer1.setCustomerName(name);
+    				customer1.setCustomerEmail(email);
+    				customer1.setActive(available);
+    				customer1 = service.updateById(customer1);
+    				System.out.println(customer1);
+    				break;
+    				
     			case 0:
     				System.out.println("Shutting down!!");
     				System.exit(0);
