@@ -11,8 +11,11 @@
 <% 
 //scriptlet
 ToDo todo=(ToDo)request.getAttribute("todo");
+
+
 out.println(todo.getId()+" , "+todo.getName()+" , "+todo.getCompletedBy());
 %>
+
 
 </body>
 </html>
