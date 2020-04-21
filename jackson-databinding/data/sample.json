@@ -1,0 +1,14 @@
+{
+	"id" : 1,
+	"firstName" : "Ravi",
+	"lastName" : "Kumar",
+	"active" : true,
+	"address" : {
+				"street" : "gandhi path",
+				"city" : "Jaipur",
+				"state" : "Rajasthan",
+				"zip" : "302012",
+				"country" : "India"
+			},
+	"languages" : ["hindi","english"]
+}
