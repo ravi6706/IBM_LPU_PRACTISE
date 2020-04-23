@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -34,5 +35,23 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		List<Employee> list = query.getResultList();
 		return list;
 	}
+
+	@Override
+	public Employee findById(int id) {
+		Employee employee = entityManager.find(Employee.class, id);
+		return employee;
+	}
+
+	@Override
+	public void deleteEmployee(int id) {
+		Employee employee = entityManager.find(Employee.class, id);
+		if(employee != null) {
+			entityManager.remove(employee);
+		}
+		
+		
+	}
+
+	
 
 }

@@ -2,11 +2,17 @@ package com.example.demo.rest;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Employee;
@@ -48,6 +54,17 @@ public class EmployeeController {
 	public List<Employee> getAllEmployee(){
 		return employeeService.getAllEmployee();
 	}
+	
+	@GetMapping("/employee/{id}")
+	public Employee findById(@PathVariable int id) {
+		return employeeService.findById(id);
+	}
+	
+	@DeleteMapping("/employee/{id}")
+	public void deleteEmployee(@PathVariable int id) {
+		employeeService.deleteEmployee(id);
+	}
+	
 	
 
 }
