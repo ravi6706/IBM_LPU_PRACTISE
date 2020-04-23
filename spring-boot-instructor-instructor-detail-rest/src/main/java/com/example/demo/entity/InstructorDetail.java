@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,12 +9,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="instructor_detail")
 public class InstructorDetail {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name="youtube_channel")
@@ -22,7 +25,7 @@ public class InstructorDetail {
 	@Column(name="hobby")
 	private String hobby;
 
-	@OneToOne(mappedBy = "instructorDetail")
+	@OneToOne(cascade= CascadeType.ALL, mappedBy = "instructorDetail")
     private Instructor instructor;
 
 	public InstructorDetail() {
@@ -42,6 +45,13 @@ public class InstructorDetail {
 		this.youtubeChannel = youtubeChannel;
 		this.hobby = hobby;
 		this.instructor = instructor;
+	}
+	
+
+	public InstructorDetail(String youtubeChannel, String hobby) {
+		super();
+		this.youtubeChannel = youtubeChannel;
+		this.hobby = hobby;
 	}
 
 	public int getId() {
@@ -68,6 +78,7 @@ public class InstructorDetail {
 		this.hobby = hobby;
 	}
 
+	@JsonManagedReference
 	public Instructor getInstructor() {
 		return instructor;
 	}

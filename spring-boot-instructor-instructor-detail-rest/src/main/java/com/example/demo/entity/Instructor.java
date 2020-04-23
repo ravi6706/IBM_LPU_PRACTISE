@@ -10,12 +10,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="instructor")
 public class Instructor {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name="name")
@@ -24,13 +26,23 @@ public class Instructor {
 	@Column(name="email")
 	private String email;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade= CascadeType.ALL)
     @JoinColumn(name = "instructor_detail_id")
 	private InstructorDetail instructorDetail;
 	
 	public Instructor() {
 		super();
 	}
+	
+	
+
+	public Instructor(String name, String email) {
+		super();
+		this.name = name;
+		this.email = email;
+	}
+
+
 
 	public Instructor(String name, String email, InstructorDetail instructorDetail) {
 		super();
@@ -71,6 +83,7 @@ public class Instructor {
 		this.email = email;
 	}
 
+	 @JsonBackReference
 	public InstructorDetail getInstructorDetail() {
 		return instructorDetail;
 	}
