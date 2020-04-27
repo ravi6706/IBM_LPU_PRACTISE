@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -25,6 +26,8 @@ public class InstructorDetail {
 	@Column(name="hobby")
 	private String hobby;
 
+	
+	
 	@OneToOne(cascade= CascadeType.ALL, mappedBy = "instructorDetail")
     private Instructor instructor;
 
@@ -78,6 +81,7 @@ public class InstructorDetail {
 		this.hobby = hobby;
 	}
 
+	
 	@JsonManagedReference
 	public Instructor getInstructor() {
 		return instructor;

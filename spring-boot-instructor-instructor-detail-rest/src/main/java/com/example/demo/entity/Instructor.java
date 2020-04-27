@@ -11,6 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="instructor")
@@ -26,6 +27,8 @@ public class Instructor {
 	@Column(name="email")
 	private String email;
 	
+	
+	
 	@OneToOne(cascade= CascadeType.ALL)
     @JoinColumn(name = "instructor_detail_id")
 	private InstructorDetail instructorDetail;
@@ -33,16 +36,12 @@ public class Instructor {
 	public Instructor() {
 		super();
 	}
-	
-	
 
 	public Instructor(String name, String email) {
 		super();
 		this.name = name;
 		this.email = email;
 	}
-
-
 
 	public Instructor(String name, String email, InstructorDetail instructorDetail) {
 		super();
@@ -83,7 +82,7 @@ public class Instructor {
 		this.email = email;
 	}
 
-	 @JsonBackReference
+	@JsonBackReference
 	public InstructorDetail getInstructorDetail() {
 		return instructorDetail;
 	}
