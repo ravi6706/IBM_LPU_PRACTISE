@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.ProductDAO;
@@ -24,6 +23,20 @@ public class ProductServiceImpl implements ProductService {
 		
 		return productDAO.findAll();
 	}
+
+@Override
+public Product findById(int id) {
+	// TODO Auto-generated method stub
+	return productDAO.findById(id).orElse(null);
+}
+
+@Override
+public Product saveProduct(Product product) {
+	// TODO Auto-generated method stub
+	return productDAO.save(product);
+}
+
+
 
 
 
