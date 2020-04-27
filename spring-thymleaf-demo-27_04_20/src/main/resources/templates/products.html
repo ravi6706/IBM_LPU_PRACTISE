@@ -28,6 +28,8 @@
                 <td th:text="${product.description}"></td>
                 <td th:text="${product.price}"></td>
                 <td th:text="${product.imageUrl}"></td>
+                <td><a th:href="${'/product/' + product.id}" class="btn btn-sm btn-primary">View</a> 
+					  <a th:href="${'/product/new/'+product.id}" class="btn btn-sm btn-info">Edit</a>
             </tr>
         </table>
     </div>

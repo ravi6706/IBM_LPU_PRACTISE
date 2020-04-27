@@ -51,8 +51,22 @@ public class ProductController {
     }
     
     @RequestMapping(value = "/product", method = RequestMethod.POST)
-    public String saveOrUpdateProduct(Product product){
+    public String saveProduct(Product product){
         Product savedProduct = productService.saveProduct(product);
         return "redirect:/products/";
     }
+    
+    @RequestMapping("/product/new/{id}")
+	public String getForm(Model model,@PathVariable int id) {
+		Product product= productService.findById(id);
+		model.addAttribute("product",product);
+		return "productForm";
+	}
+    
+    @RequestMapping(value = "/products", method = RequestMethod.PUT)
+    public String updateProduct(Product product){
+        Product savedProduct = productService.saveProduct(product);
+        return "redirect:/products/";
+    }
+    
 }
