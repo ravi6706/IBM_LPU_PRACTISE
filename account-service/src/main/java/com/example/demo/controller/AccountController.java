@@ -9,7 +9,6 @@ import com.example.demo.model.Account;
 import com.example.demo.service.AccountService;
 
 @RestController
-@RequestMapping("/api")
 public class AccountController {
 	
 	private AccountService accountService;
