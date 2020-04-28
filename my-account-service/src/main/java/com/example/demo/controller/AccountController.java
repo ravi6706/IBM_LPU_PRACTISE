@@ -10,7 +10,7 @@ import com.example.demo.entity.Account;
 import com.example.demo.service.AccountService;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class AccountController {
 	
 	private AccountService accountService;
