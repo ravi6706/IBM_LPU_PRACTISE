@@ -1,0 +1,37 @@
+info:
+  component: Edge Server
+ 
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      enabled: true
+    restart:
+      enabled: true 
+    
+
+zuul:
+  prefix: /api
+  routes:
+    account: 
+      path: /student/**
+      serviceId: student-service
+    customer: 
+      path: /school/**
+      serviceId: school-service          
+
+ribbon:
+  eureka:
+    enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: true
+      
+server:
+  port: 8888
+  
+spring:  boot:    admin:      client:        url: http://localhost:9999
