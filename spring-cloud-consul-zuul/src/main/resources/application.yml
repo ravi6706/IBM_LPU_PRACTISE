@@ -9,17 +9,6 @@ management:
       enabled: true
     restart:
       enabled: true 
-    
-
-zuul:
-  prefix: /api
-  routes:
-    account: 
-      path: /student/**
-      serviceId: student-service
-    customer: 
-      path: /school/**
-      serviceId: school-service          
 
 ribbon:
   eureka:
@@ -34,4 +23,4 @@ eureka:
 server:
   port: 8888
   
-spring:  boot:    admin:      client:        url: http://localhost:9999
+spring:  boot:    admin:      client:        url: http://localhost:9999
