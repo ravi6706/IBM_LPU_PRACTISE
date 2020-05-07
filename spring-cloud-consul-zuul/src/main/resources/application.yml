@@ -12,7 +12,7 @@ management:
 
 ribbon:
   eureka:
-    enabled: true
+    enabled: false
 
 eureka:
   client:
@@ -23,4 +23,16 @@ eureka:
 server:
   port: 8888
   
-spring:  boot:    admin:      client:        url: http://localhost:9999
+spring:  boot:    admin:      client:        url: http://localhost:9999
+        
+zuul:
+   routes:
+      ecommerce-service:
+         path: /**
+         serviceId: ecommerce-service
+         strip-prefix: false
+         
+ecommerce-service:
+   ribbon:
+      listOfServers: localhost:8080
+
